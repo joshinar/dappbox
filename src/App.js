@@ -16,6 +16,7 @@ const App = () => {
   // connect to blockchain
   const loadBlockChain = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send('eth_requestAccounts', []); 
     const signer = await provider.getSigner();
     const netowrk = await provider.getNetwork();
     const account = await signer.getAddress();
